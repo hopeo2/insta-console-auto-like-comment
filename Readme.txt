@@ -1,6 +1,6 @@
 hello))
 
-Welcome to Delete Tweets & Likes Script 👋
+Welcome to Like and Comment Script 👋
 Twitter: user_nnnn
 
 if you want to delete all of your tweets and the tweets that you like, this script can help you.
