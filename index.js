@@ -24,7 +24,7 @@ async function loop() {
                 "Pausing for 2 minutes..."
             );
             await sleep(2 * 60 * 1000);
-        } else if (likeCount % 20 === 0) {
+        } else if (likeCount % 20 === 0 && likeCount != 0) {
             likeCount++;
             console.log(
                 "Pausing for 10 minutes..."
@@ -50,7 +50,7 @@ async function loop() {
             if (btn.length) {
                 btn[0].click();
                 console.log("commenting... the post");
-                btn[0].textContent = "do U See??! this is what islam is🖤🖤";
+                btn[0].textContent = "I am the reflection of the light of Islam 🖤🖤";
                 var inputEvent = new Event("input", {
                     bubbles: true,
                     cancelable: true,
