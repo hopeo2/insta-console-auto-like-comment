@@ -11,23 +11,25 @@ async function loop() {
     var Time2 = Math.ceil(Math.random() * 10) + 3;
     var randomSkip = Math.random() * 10;
 
-    if (likeCount % 5 === 0 && likeCount != 0) {
-        console.log("Reached likeCount of sqrt(25). Pausing for 2 minutes...");
-        await sleep(2 * 60 * 1000);
-    } else if(likeCount == 20) {
-        console.log("Reached likeCount of sqrt(25). Pausing for 6 minutes...");
-        await sleep(6 * 60 * 1000);
-    }
-
-    setTimeout(function () {
+    setTimeout(async function () {
         //like
         if (document.querySelectorAll('svg[aria-label="Unlike"]')[0]) {
-            likeCount++;
             console.log("Already Liked");
         } else if (parseInt(randomSkip) >= 7) {
             //we skip some of the post, we dont want to be a heart sleuth
-            likeCount++;
             console.log("Random Skipping: " + parseInt(randomSkip));
+        } else if (likeCount % 5 === 0 && likeCount != 0) {
+            likeCount++;
+            console.log(
+                "Pausing for 2 minutes..."
+            );
+            await sleep(2 * 60 * 1000);
+        } else if (likeCount % 20 === 0) {
+            likeCount++;
+            console.log(
+                "Pausing for 10 minutes..."
+            );
+            await sleep(10 * 60 * 1000);
         } else {
             likeCount++;
             console.log("Liking the post");
@@ -48,8 +50,7 @@ async function loop() {
             if (btn.length) {
                 btn[0].click();
                 console.log("commenting... the post");
-                btn[0].textContent =
-                    "چرا آدما دست از سر آدما بر نمیدارن؟؟! #توماج_صالحی";
+                btn[0].textContent = "do U See??! this is what islam is🖤🖤";
                 var inputEvent = new Event("input", {
                     bubbles: true,
                     cancelable: true,
@@ -92,34 +93,5 @@ async function loop() {
         }, Time1 * 1000);
     }, Time2 * 1000);
 }
+
 loop();
-
-
-
-
-
-
-
-
-
-
-var timeout = 5;
-
-var deletedTweets = 0;
-timeout = timeout * 1000
-
-var delTweets = function () {
-    console.log('liked:', deletedTweets);
-
-    document.querySelectorAll('[data-testid="like"]').forEach(function (v3, i3, a3) {
-        try {
-            v3.click();
-            deletedTweets++
-        } catch (error) {
-            console.error(error)
-        }
-    });
-
-    window.scrollBy(0, 10000);
-}
-setInterval(delTweets, timeout);
